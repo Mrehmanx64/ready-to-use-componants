@@ -26,6 +26,39 @@ ready-to-use-components/
     └── screenshots/
 ```
 
+## 🧱 Components
+
+### 📬 Contact Forms
+
+Clean, modern contact form layouts ready for any project.
+
+| Preview                                                                                                                            | File                             |
+| ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| ![Contact Form 4](https://github.com/Mrehmanx64/ready-to-use-componants/blob/main/contactforms/screenshots/contact4.jpeg?raw=true) | `contactforms/contactform4.html` |
+| ![Contact Form 2](https://github.com/Mrehmanx64/ready-to-use-componants/blob/main/contactforms/screenshots/contact2.jpeg?raw=true) | `contactforms/contactform2.html` |
+
+---
+
+### 🎠 Sliders
+
+Powered by **Swiper.js** — responsive, touch-friendly, and fully customizable.
+
+| Preview                                                                                                                | File                   |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| ![Slider 1](https://github.com/Mrehmanx64/ready-to-use-componants/blob/main/sliders/screenshots/silider1.png?raw=true) | `sliders/slider1.html` |
+| ![Slider 2](https://github.com/Mrehmanx64/ready-to-use-componants/blob/main/sliders/screenshots/silder2.png?raw=false) | `sliders/slider2.html` |
+| ![Slider 3](https://github.com/Mrehmanx64/ready-to-use-componants/blob/main/sliders/screenshots/slide3.png?raw=false)  | `sliders/slider3.html` |
+
+---
+
+### 🔗 Navbars
+
+Responsive navigation bars in multiple styles — minimal, bold, full-width, and more.
+
+Browse all 6 variants in the [`navbars/`](./navbars) folder.
+
+---
+
 ---
 
 ## 🚀 Getting Started
@@ -84,39 +117,6 @@ Every component shares the same base template. Just drop your chosen component's
   </body>
 </html>
 ```
-
----
-
-## 🧱 Components
-
-### 📬 Contact Forms
-
-Clean, modern contact form layouts ready for any project.
-
-| Preview                                                                                                                            | File                             |
-| ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| ![Contact Form 4](https://github.com/Mrehmanx64/ready-to-use-componants/blob/main/contactforms/screenshots/contact4.jpeg?raw=true) | `contactforms/contactform4.html` |
-| ![Contact Form 2](https://github.com/Mrehmanx64/ready-to-use-componants/blob/main/contactforms/screenshots/contact2.jpeg?raw=true) | `contactforms/contactform2.html` |
-
----
-
-### 🎠 Sliders
-
-Powered by **Swiper.js** — responsive, touch-friendly, and fully customizable.
-
-| Preview                                                                                                                | File                   |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| ![Slider 1](https://github.com/Mrehmanx64/ready-to-use-componants/blob/main/sliders/screenshots/silider1.png?raw=true) | `sliders/slider1.html` |
-| ![Slider 2](https://github.com/Mrehmanx64/ready-to-use-componants/blob/main/sliders/screenshots/silider2.png?raw=true) | `sliders/slider2.html` |
-| ![Slider 3](https://github.com/Mrehmanx64/ready-to-use-componants/blob/main/sliders/screenshots/silider3.png?raw=true) | `sliders/slider3.html` |
-
----
-
-### 🔗 Navbars
-
-Responsive navigation bars in multiple styles — minimal, bold, full-width, and more.
-
-Browse all 6 variants in the [`navbars/`](./navbars) folder.
 
 ---
 
