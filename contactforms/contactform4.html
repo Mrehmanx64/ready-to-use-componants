@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contact4</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Swiper.js -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,700&family=Epilogue:wght@300;400;500;600;700&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* =============================================
+       CONTACT LAYOUT 4
+       "Full-Bleed Modern" — Light neutral + deep navy
+       Fonts: Outfit (all weights)
+       Theme: SaaS / tech company
+    ============================================= */
+
+      .yk-c4-section {
+        --c4-bg: #f6f7fb;
+        --c4-navy: #0f1c3f;
+        --c4-blue: #2a5bd7;
+        --c4-accent: #00d4b4;
+        --c4-text: #1e2a40;
+        --c4-muted: #8390a8;
+        --c4-border: #dde3f0;
+        --c4-white: #ffffff;
+        background: var(--c4-bg);
+      }
+
+      /* Hero band */
+      .yk-c4-hero {
+        background: var(--c4-navy);
+        padding: 70px 0 120px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .yk-c4-hero::before {
+        content: "";
+        position: absolute;
+        right: -10%;
+        top: -30%;
+        width: 60vw;
+        height: 60vw;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(42, 91, 215, 0.25) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .yk-c4-hero::after {
+        content: "";
+        position: absolute;
+        left: 20%;
+        bottom: -40%;
+        width: 40vw;
+        height: 40vw;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 212, 180, 0.12) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .yk-c4-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(0, 212, 180, 0.12);
+        border: 1px solid rgba(0, 212, 180, 0.25);
+        border-radius: 50px;
+        padding: 5px 16px;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--c4-accent);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      .yk-c4-badge::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--c4-accent);
+        animation: yk-pulse 1.6s infinite;
+      }
+
+      @keyframes yk-pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.4;
+          transform: scale(0.8);
+        }
+      }
+
+      .yk-c4-headline {
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.15;
+        margin-bottom: 14px;
+      }
+
+      .yk-c4-sub {
+        font-family: "Outfit", sans-serif;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.52);
+        line-height: 1.7;
+        max-width: 480px;
+      }
+
+      /* Cards that float over the hero */
+      .yk-c4-cards-row {
+        margin-top: -56px;
+        position: relative;
+        z-index: 10;
+        padding-bottom: 16px;
+      }
+
+      .yk-c4-info-card {
+        background: var(--c4-white);
+        border-radius: 16px;
+        padding: 28px 24px;
+        box-shadow: 0 8px 32px rgba(15, 28, 63, 0.1);
+        height: 100%;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .yk-c4-info-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px rgba(15, 28, 63, 0.14);
+      }
+
+      .yk-c4-ic-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(42, 91, 215, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: var(--c4-blue);
+        margin-bottom: 16px;
+      }
+
+      .yk-c4-ic-label {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--c4-muted);
+        margin-bottom: 5px;
+      }
+
+      .yk-c4-ic-val {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--c4-text);
+      }
+
+      .yk-c4-ic-sub {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.78rem;
+        color: var(--c4-muted);
+        margin-top: 2px;
+      }
+
+      /* Main content: form + map */
+      .yk-c4-content {
+        padding: 56px 0 72px;
+      }
+
+      .yk-c4-form-card {
+        background: var(--c4-white);
+        border-radius: 20px;
+        padding: 44px 40px;
+        box-shadow: 0 2px 20px rgba(15, 28, 63, 0.06);
+      }
+
+      .yk-c4-form-head {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--c4-text);
+        margin-bottom: 6px;
+      }
+
+      .yk-c4-form-sub {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.85rem;
+        color: var(--c4-muted);
+        margin-bottom: 30px;
+      }
+
+      .yk-c4-label {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--c4-text);
+        display: block;
+        margin-bottom: 7px;
+      }
+
+      .yk-c4-input {
+        width: 100%;
+        background: var(--c4-bg);
+        border: 1.5px solid var(--c4-border);
+        border-radius: 10px;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.9rem;
+        color: var(--c4-text);
+        padding: 11px 14px;
+        outline: none;
+        transition:
+          border-color 0.25s,
+          box-shadow 0.25s;
+        margin-bottom: 20px;
+      }
+
+      .yk-c4-input:focus {
+        border-color: var(--c4-blue);
+        box-shadow: 0 0 0 3px rgba(42, 91, 215, 0.1);
+      }
+
+      .yk-c4-input::placeholder {
+        color: var(--c4-muted);
+        opacity: 0.6;
+      }
+
+      .yk-c4-textarea {
+        resize: none;
+        min-height: 120px;
+      }
+
+      /* Radio topic selector */
+      .yk-c4-topics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 22px;
+      }
+
+      .yk-c4-topic-btn {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--c4-muted);
+        border: 1.5px solid var(--c4-border);
+        border-radius: 50px;
+        padding: 6px 16px;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .yk-c4-topic-btn:hover,
+      .yk-c4-topic-btn.yk-active {
+        background: var(--c4-blue);
+        border-color: var(--c4-blue);
+        color: #fff;
+      }
+
+      .yk-c4-submit {
+        background: var(--c4-blue);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 13px 32px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition:
+          background 0.25s,
+          transform 0.2s;
+      }
+
+      .yk-c4-submit:hover {
+        background: #1a49c0;
+        transform: translateY(-2px);
+      }
+
+      /* Map side */
+      .yk-c4-map-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .yk-c4-map-frame {
+        border-radius: 20px;
+        overflow: hidden;
+        flex: 1;
+        min-height: 280px;
+        box-shadow: 0 2px 20px rgba(15, 28, 63, 0.08);
+      }
+
+      .yk-c4-map-frame iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        min-height: 280px;
+      }
+
+      .yk-c4-hours-card {
+        background: var(--c4-navy);
+        border-radius: 16px;
+        padding: 24px 26px;
+      }
+
+      .yk-c4-hours-title {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--c4-accent);
+        margin-bottom: 14px;
+      }
+
+      .yk-c4-hours-row {
+        display: flex;
+        justify-content: space-between;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.65);
+        padding: 6px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .yk-c4-hours-row:last-child {
+        border-bottom: none;
+      }
+      .yk-c4-hours-row span:last-child {
+        color: rgba(255, 255, 255, 0.88);
+        font-weight: 500;
+      }
+      /* =============================================
+       FORM SUCCESS STATE (shared)
+    ============================================= */
+      .yk-success-msg {
+        display: none;
+        background: #f0fdf4;
+        border: 1.5px solid #86efac;
+        border-radius: 10px;
+        padding: 14px 18px;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.88rem;
+        color: #166534;
+        align-items: center;
+        gap: 10px;
+        margin-top: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =============================================
+     LAYOUT 4 — FULL-BLEED SAAS
+     Deep navy hero + floating cards + map panel
+============================================= -->
+    <section class="yk-c4-section" id="layout4">
+      <!-- Hero Band -->
+      <div class="yk-c4-hero">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="yk-c4-badge">We're online & ready</div>
+              <h2 class="yk-c4-headline">We'd love to<br />hear from you.</h2>
+              <p class="yk-c4-sub">
+                Our team is available Monday through Friday. Reach out for
+                support, partnerships, or press inquiries.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Info Cards -->
+      <div class="container">
+        <div class="yk-c4-cards-row">
+          <div class="row g-3">
+            <div class="col-6 col-md-3">
+              <div class="yk-c4-info-card">
+                <div class="yk-c4-ic-icon">
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <p class="yk-c4-ic-label">General</p>
+                <p class="yk-c4-ic-val">hello@nexacloud.io</p>
+                <p class="yk-c4-ic-sub">Sales & onboarding</p>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+              <div class="yk-c4-info-card">
+                <div class="yk-c4-ic-icon"><i class="bi bi-headset"></i></div>
+                <p class="yk-c4-ic-label">Support</p>
+                <p class="yk-c4-ic-val">support@nexacloud.io</p>
+                <p class="yk-c4-ic-sub">24/7 technical help</p>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+              <div class="yk-c4-info-card">
+                <div class="yk-c4-ic-icon"><i class="bi bi-telephone"></i></div>
+                <p class="yk-c4-ic-label">Phone</p>
+                <p class="yk-c4-ic-val">+1 888 632 4400</p>
+                <p class="yk-c4-ic-sub">Mon–Fri, 9am–6pm ET</p>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+              <div class="yk-c4-info-card">
+                <div class="yk-c4-ic-icon"><i class="bi bi-building"></i></div>
+                <p class="yk-c4-ic-label">HQ</p>
+                <p class="yk-c4-ic-val">New York, NY 10001</p>
+                <p class="yk-c4-ic-sub">340 5th Ave, Suite 900</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form + Map -->
+        <div class="yk-c4-content">
+          <div class="row g-4">
+            <!-- Form -->
+            <div class="col-12 col-lg-7">
+              <div class="yk-c4-form-card">
+                <h3 class="yk-c4-form-head">Send us a message</h3>
+                <p class="yk-c4-form-sub">
+                  Fill in the form and we'll get back to you within one business
+                  day.
+                </p>
+
+                <!-- Topic selector -->
+                <label class="yk-c4-label">I'm contacting you about…</label>
+                <div class="yk-c4-topics mb-3">
+                  <button type="button" class="yk-c4-topic-btn yk-active">
+                    General
+                  </button>
+                  <button type="button" class="yk-c4-topic-btn">Sales</button>
+                  <button type="button" class="yk-c4-topic-btn">Support</button>
+                  <button type="button" class="yk-c4-topic-btn">Press</button>
+                  <button type="button" class="yk-c4-topic-btn">
+                    Partnerships
+                  </button>
+                </div>
+
+                <form class="yk-c4-form" novalidate>
+                  <div class="row g-2">
+                    <div class="col-12 col-sm-6">
+                      <label class="yk-c4-label">Full Name</label>
+                      <input
+                        type="text"
+                        class="yk-c4-input"
+                        placeholder="Alex Johnson"
+                      />
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <label class="yk-c4-label">Work Email</label>
+                      <input
+                        type="email"
+                        class="yk-c4-input"
+                        placeholder="alex@company.com"
+                      />
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <label class="yk-c4-label">Company</label>
+                      <input
+                        type="text"
+                        class="yk-c4-input"
+                        placeholder="Acme Corp"
+                      />
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <label class="yk-c4-label">Phone (optional)</label>
+                      <input
+                        type="tel"
+                        class="yk-c4-input"
+                        placeholder="+1 555 000 0000"
+                      />
+                    </div>
+                    <div class="col-12">
+                      <label class="yk-c4-label">Message</label>
+                      <textarea
+                        class="yk-c4-input yk-c4-textarea"
+                        placeholder="How can we help you?"
+                      ></textarea>
+                    </div>
+                    <div
+                      class="col-12 d-flex align-items-center gap-3 flex-wrap"
+                    >
+                      <button
+                        type="submit"
+                        class="yk-c4-submit yk-c4-form-trigger"
+                      >
+                        Send Message <i class="bi bi-arrow-right"></i>
+                      </button>
+                      <span
+                        style="
+                          font-family: &quot;Outfit&quot;, sans-serif;
+                          font-size: 0.75rem;
+                          color: #8390a8;
+                        "
+                      >
+                        <i class="bi bi-lock-fill"></i> Your data is safe with
+                        us.
+                      </span>
+                    </div>
+                    <div class="col-12">
+                      <div class="yk-success-msg yk-c4-success d-flex">
+                        <i class="bi bi-check-circle-fill"></i> Thanks! Our team
+                        will respond within 1 business day.
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Map + Hours -->
+            <div class="col-12 col-lg-5">
+              <div class="yk-c4-map-panel" style="height: 100%">
+                <div class="yk-c4-map-frame">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227.15382444971488!2d88.6045684!3d24.3652548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fbefc8e4c4b019%3A0xac68ee5aa77f797f!2zZS0gTGVhcm5pbmcgJiBFYXJuaW5nIEx0ZCwgUmFqc2hhaGkg4KaHIC3gprLgpr7gprDgp43gpqjgpr_gpoIg4KaP4Kao4KeN4KahIOCmhuCmsOCnjeCmqOCmv-CmgiDgprLgpr_gpq7gpr_gpp_gp4fgpqEsIOCmsOCmvuCmnOCmtuCmvuCmueCngA!5e0!3m2!1sen!2sbd!4v1773402864601!5m2!1sen!2sbd"
+                    width="600"
+                    height="450"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+                <div class="yk-c4-hours-card">
+                  <p class="yk-c4-hours-title">
+                    <i class="bi bi-clock me-2"></i>Office Hours
+                  </p>
+                  <div class="yk-c4-hours-row">
+                    <span>Monday – Wednesday</span><span>9:00 – 18:00</span>
+                  </div>
+                  <div class="yk-c4-hours-row">
+                    <span>Thursday – Friday</span><span>9:00 – 17:00</span>
+                  </div>
+                  <div class="yk-c4-hours-row">
+                    <span>Saturday</span><span>10:00 – 14:00</span>
+                  </div>
+                  <div class="yk-c4-hours-row">
+                    <span>Sunday</span><span>Closed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      /* =============================================
+     Layout 4 — Topic pill toggle
+  ============================================= */
+      $(function () {
+        $(".yk-c4-topic-btn").on("click", function () {
+          $(".yk-c4-topic-btn").removeClass("yk-active");
+          $(this).addClass("yk-active");
+        });
+
+        /* Layout 4 — Form submit */
+        $(".yk-c4-form").on("submit", function (e) {
+          e.preventDefault();
+          $(".yk-c4-success").fadeIn(300);
+          $(this)[0].reset();
+        });
+      });
+    </script>
+  </body>
+</html>

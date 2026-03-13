@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nav3</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Swiper.js -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,700&family=Epilogue:wght@300;400;500;600;700&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ================================================================
+       NAVBAR 3 — STICKY SCROLL NAVBAR
+       Aesthetic: Floats cleanly, gains depth on scroll
+    ================================================================ */
+
+      .yk-nav3-wrapper {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .yk-nav3 {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid transparent;
+        padding: 0;
+        font-family: var(--yk-font-sans);
+        transition:
+          box-shadow 0.3s var(--yk-easing),
+          border-color 0.3s var(--yk-easing),
+          background 0.3s var(--yk-easing);
+      }
+
+      .yk-nav3.yk-scrolled {
+        border-bottom-color: rgba(0, 0, 0, 0.07);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.98);
+      }
+
+      .yk-nav3 .yk-n3-inner {
+        padding: 15px 0;
+        transition: padding 0.3s var(--yk-easing);
+      }
+      .yk-nav3.yk-scrolled .yk-n3-inner {
+        padding: 10px 0;
+      }
+
+      .yk-nav3 .yk-n3-logo {
+        font-family: var(--yk-font-sans);
+        font-weight: 800;
+        font-size: 1.2rem;
+        letter-spacing: -0.05em;
+        color: #111;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .yk-nav3 .yk-n3-dot {
+        width: 8px;
+        height: 8px;
+        background: #22c55e;
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+        flex-shrink: 0;
+      }
+
+      .yk-nav3 .nav-link {
+        font-size: 0.86rem;
+        font-weight: 500;
+        color: #555;
+        padding: 6px 14px !important;
+        position: relative;
+        transition: color var(--yk-transition);
+      }
+
+      .yk-nav3 .nav-link::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 8px;
+        background: #f4f4f4;
+        opacity: 0;
+        transform: scale(0.85);
+        transition:
+          opacity var(--yk-transition),
+          transform var(--yk-transition);
+      }
+
+      .yk-nav3 .nav-link span {
+        position: relative;
+        z-index: 1;
+      }
+      .yk-nav3 .nav-link:hover {
+        color: #111;
+      }
+      .yk-nav3 .nav-link:hover::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .yk-nav3 .nav-link.active {
+        color: #111;
+        font-weight: 600;
+      }
+      .yk-nav3 .nav-link.active::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .yk-nav3 .yk-n3-badge {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        background: #dcfce7;
+        color: #15803d;
+        padding: 2px 7px;
+        border-radius: 100px;
+        position: relative;
+        z-index: 1;
+        margin-left: 4px;
+      }
+
+      .yk-nav3 .yk-n3-cta {
+        font-size: 0.84rem;
+        font-weight: 600;
+        background: #111;
+        color: #fff;
+        padding: 8px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition:
+          background var(--yk-transition),
+          transform var(--yk-transition);
+        letter-spacing: -0.02em;
+      }
+      .yk-nav3 .yk-n3-cta:hover {
+        background: #333;
+        transform: translateY(-1px);
+      }
+
+      .yk-nav3 .navbar-toggler {
+        border: none;
+        padding: 4px 8px;
+      }
+      .yk-nav3 .navbar-toggler:focus {
+        box-shadow: none;
+      }
+      .yk-nav3 .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280,0,0,0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+
+      @media (max-width: 991px) {
+        .yk-nav3 .navbar-collapse {
+          padding: 8px 0 16px;
+          border-top: 1px solid #f0f0f0;
+          margin-top: 12px;
+        }
+        .yk-nav3 .nav-link::before {
+          display: none;
+        }
+        .yk-nav3 .nav-link {
+          padding: 10px 4px !important;
+          border-bottom: 1px solid #f5f5f5;
+        }
+        .yk-nav3 .yk-n3-cta {
+          display: block;
+          text-align: center;
+          margin-top: 12px;
+        }
+      }
+
+      /* Demo scroll area for navbar 3 */
+      .yk-n3-scroll-demo {
+        height: 120px;
+        background: linear-gradient(to bottom, #f8f8f6, #f0f0ed);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--yk-font-mono);
+        font-size: 0.72rem;
+        color: #aaa;
+        letter-spacing: 0.1em;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================================
+      NAVBAR 3 — STICKY SCROLL NAVBAR
+      Copy from here ↓
+      Wrap the nav in: <div class="yk-nav3-wrapper"> ... </div>
+      The jQuery below adds .yk-scrolled on scroll.
+    ============================================================ -->
+    <nav class="yk-nav3 navbar navbar-expand-lg" id="yk-sticky-nav">
+      <div class="container">
+        <div class="yk-n3-inner d-flex align-items-center w-100">
+          <!-- Logo -->
+          <a class="navbar-brand p-0 me-4" href="#">
+            <div class="yk-n3-logo">
+              <div class="yk-n3-dot"></div>
+              Lumen
+            </div>
+          </a>
+
+          <!-- Hamburger -->
+          <button
+            class="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#yk-nav3-menu"
+            aria-controls="yk-nav3-menu"
+            aria-expanded="false"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Links -->
+          <div class="collapse navbar-collapse" id="yk-nav3-menu">
+            <ul class="navbar-nav me-auto gap-1">
+              <li class="nav-item">
+                <a class="nav-link active" href="#"><span>Platform</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><span>Integrations</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span>What's new</span>
+                  <span class="yk-n3-badge">Jan 2025</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><span>Pricing</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><span>Enterprise</span></a>
+              </li>
+            </ul>
+            <div class="d-flex align-items-center gap-2">
+              <a
+                href="#"
+                style="
+                  font-size: 0.84rem;
+                  font-weight: 500;
+                  color: #777;
+                  text-decoration: none;
+                  padding: 6px 12px;
+                "
+                >Log in</a
+              >
+              <a href="#" class="yk-n3-cta">Start building →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      /* ================================================================
+     JQUERY — NAVBAR 3: Sticky scroll effect
+     Adds .yk-scrolled class when page scrolled past 40px
+  ================================================================ */
+      $(window).on("scroll", function () {
+        if ($(this).scrollTop() > 40) {
+          $("#yk-sticky-nav").addClass("yk-scrolled");
+        } else {
+          $("#yk-sticky-nav").removeClass("yk-scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slider4</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Swiper.js -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,700&family=Epilogue:wght@300;400;500;600;700&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ==============================================
+       SLIDER 4 — MINIMAL STARTUP SLIDER
+       Theme: Brutally minimal — white + black,
+       large type, Bebas Neue display
+    =============================================== */
+
+      .yk-s4 {
+        --s4-bg: #f9f9f6;
+        --s4-dark: #0a0a0a;
+        --s4-accent: #0a0a0a;
+        --s4-muted: #999;
+        background: var(--s4-bg);
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Rotating background number watermark */
+      .yk-s4-watermark {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 5%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .yk-s4-watermark span {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 28vw;
+        color: rgba(0, 0, 0, 0.04);
+        line-height: 1;
+        transition: opacity 0.6s;
+      }
+
+      .yk-s4 .swiper {
+        position: relative;
+        z-index: 1;
+      }
+
+      .yk-s4 .swiper {
+        height: 100vh;
+        min-height: 560px;
+      }
+
+      .yk-s4 .swiper-slide {
+        display: flex;
+        align-items: center;
+      }
+
+      .yk-s4-inner {
+        max-width: 800px;
+        padding: 0 clamp(32px, 8vw, 120px);
+      }
+
+      .yk-s4-step {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--s4-muted);
+        margin-bottom: 22px;
+        opacity: 0;
+        transform: translateY(8px);
+        transition:
+          opacity 0.5s ease 0.05s,
+          transform 0.5s ease 0.05s;
+      }
+
+      .yk-s4-headline {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(3.5rem, 9vw, 9rem);
+        line-height: 0.92;
+        color: var(--s4-dark);
+        margin-bottom: 28px;
+        letter-spacing: 0.01em;
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.6s ease 0.15s,
+          transform 0.7s ease 0.15s;
+      }
+
+      .yk-s4-desc {
+        font-family: "Outfit", sans-serif;
+        font-size: 1rem;
+        color: var(--s4-muted);
+        line-height: 1.75;
+        max-width: 420px;
+        margin-bottom: 40px;
+        opacity: 0;
+        transform: translateY(12px);
+        transition:
+          opacity 0.5s ease 0.3s,
+          transform 0.5s ease 0.3s;
+        border-left: 2px solid #e0e0e0;
+        padding-left: 16px;
+      }
+
+      .yk-s4-btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        opacity: 0;
+        transform: translateY(12px);
+        transition:
+          opacity 0.5s ease 0.45s,
+          transform 0.5s ease 0.45s;
+      }
+
+      .yk-s4 .swiper-slide-active .yk-s4-step,
+      .yk-s4 .swiper-slide-active .yk-s4-headline,
+      .yk-s4 .swiper-slide-active .yk-s4-desc,
+      .yk-s4 .swiper-slide-active .yk-s4-btns {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .yk-s4-btn-p {
+        background: var(--s4-dark);
+        color: #fff;
+        border: 2px solid var(--s4-dark);
+        font-family: "Outfit", sans-serif;
+        font-size: 0.84rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        padding: 13px 30px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition:
+          background 0.25s,
+          color 0.25s,
+          transform 0.2s;
+      }
+
+      .yk-s4-btn-p:hover {
+        background: transparent;
+        color: var(--s4-dark);
+        transform: translateY(-2px);
+      }
+
+      .yk-s4-btn-s {
+        background: transparent;
+        color: var(--s4-muted);
+        border: 2px solid #ddd;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.84rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        padding: 13px 30px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition:
+          border-color 0.25s,
+          color 0.25s,
+          transform 0.2s;
+      }
+
+      .yk-s4-btn-s:hover {
+        border-color: var(--s4-dark);
+        color: var(--s4-dark);
+        transform: translateY(-2px);
+      }
+
+      /* Bottom bar: arrows + dots */
+      .yk-s4-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        border-top: 1px solid #e8e8e8;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 clamp(32px, 8vw, 120px);
+        height: 68px;
+      }
+
+      .yk-s4-arrows {
+        display: flex;
+        gap: 0;
+      }
+
+      .yk-s4-prev,
+      .yk-s4-next {
+        width: 46px;
+        height: 46px;
+        background: transparent;
+        border: 1.5px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--s4-dark);
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+
+      .yk-s4-prev {
+        border-right: none;
+      }
+      .yk-s4-prev:hover,
+      .yk-s4-next:hover {
+        background: var(--s4-dark);
+        color: #fff;
+      }
+
+      .yk-s4 .swiper-pagination {
+        position: static;
+        display: flex;
+        gap: 8px;
+      }
+
+      .yk-s4 .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ccc;
+        opacity: 1;
+        margin: 0;
+      }
+
+      .yk-s4 .swiper-pagination-bullet-active {
+        background: var(--s4-dark);
+      }
+
+      .yk-s4-slide-num {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.8rem;
+        color: var(--s4-muted);
+      }
+
+      /* Bug 2 Fix — missing demo divider styles */
+      .yk-demo-divider {
+        display: none; /* Hide the scaffold label in production */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =============================================
+     SLIDER 4 — MINIMAL STARTUP SLIDER
+     Brutalist minimal | Bebas Neue + Outfit
+     White BG | Giant type | Borderline nav
+============================================= -->
+    <div class="yk-demo-divider">
+      <span>Component 04</span>
+      <strong>Minimal Startup Slider</strong>
+    </div>
+
+    <section class="yk-s4">
+      <!-- Animated background watermark number -->
+      <div class="yk-s4-watermark"><span class="yk-s4-wm-num">01</span></div>
+
+      <div class="swiper yk-s4-swiper">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <div class="yk-s4-inner">
+              <p class="yk-s4-step">01 — Mission</p>
+              <h2 class="yk-s4-headline">We Build<br />The Internet</h2>
+              <p class="yk-s4-desc">
+                Infrastructure for teams that refuse to slow down. From zero to
+                millions of users without breaking a sweat.
+              </p>
+              <div class="yk-s4-btns">
+                <a href="#" class="yk-s4-btn-p"
+                  >Start Free Trial <i class="bi bi-arrow-right"></i
+                ></a>
+                <a href="#" class="yk-s4-btn-s">Read the Docs</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <div class="yk-s4-inner">
+              <p class="yk-s4-step">02 — Product</p>
+              <h2 class="yk-s4-headline">Deploy<br />In Seconds</h2>
+              <p class="yk-s4-desc">
+                Push to production with a single command. Zero downtime. No
+                config files. Just code that runs everywhere.
+              </p>
+              <div class="yk-s4-btns">
+                <a href="#" class="yk-s4-btn-p"
+                  >See Demos <i class="bi bi-arrow-right"></i
+                ></a>
+                <a href="#" class="yk-s4-btn-s">View Pricing</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <div class="yk-s4-inner">
+              <p class="yk-s4-step">03 — Scale</p>
+              <h2 class="yk-s4-headline">From 0 to<br />1 Billion</h2>
+              <p class="yk-s4-desc">
+                Auto-scaling infrastructure that grows with you. We've powered
+                companies from garage to IPO.
+              </p>
+              <div class="yk-s4-btns">
+                <a href="#" class="yk-s4-btn-p"
+                  >Talk to Sales <i class="bi bi-arrow-right"></i
+                ></a>
+                <a href="#" class="yk-s4-btn-s">Customer Stories</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom nav bar -->
+      <div class="yk-s4-bottom">
+        <div class="yk-s4-arrows">
+          <div class="yk-s4-prev"><i class="bi bi-arrow-left"></i></div>
+          <div class="yk-s4-next"><i class="bi bi-arrow-right"></i></div>
+        </div>
+        <div class="swiper-pagination yk-s4-pagination"></div>
+        <span class="yk-s4-slide-num yk-s4-num-el">01 / 03</span>
+      </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      /* =============================================
+   SLIDER 4 — Minimal Startup
+   Autoplay | Watermark number sync | Slide counter
+============================================= */
+      (function () {
+        /* Real slide count — defined once, used everywhere */
+        var TOTAL = 3;
+
+        /* Bug 3 Fix — safe label lookup guards against out-of-range realIndex */
+        function slideLabel(realIndex) {
+          var n = (realIndex % TOTAL) + 1;
+          return n < 10 ? "0" + n : "" + n;
+        }
+
+        var s4 = new Swiper(".yk-s4-swiper", {
+          loop: true,
+          speed: 650,
+          autoplay: { delay: 5000, disableOnInteraction: false },
+          navigation: {
+            nextEl: ".yk-s4-next",
+            prevEl: ".yk-s4-prev",
+          },
+          pagination: {
+            el: ".yk-s4-pagination",
+            clickable: true,
+          },
+          on: {
+            slideChange: function () {
+              var lbl = slideLabel(this.realIndex);
+
+              /* Bug 3 Fix — watermark uses safe bounds-checked label */
+              $(".yk-s4-wm-num").text(lbl);
+
+              /* Bug 1 Fix — use TOTAL constant, not s4.slides.length
+                 (loop mode appends cloned slides, inflating .slides.length) */
+              $(".yk-s4-num-el").text(lbl + " / 0" + TOTAL);
+            },
+          },
+        });
+      })();
+    </script>
+  </body>
+</html>

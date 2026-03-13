@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nav6</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Swiper.js -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,700&family=Epilogue:wght@300;400;500;600;700&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ================================================================
+       NAVBAR 6 — MEGA MENU NAVBAR
+       Aesthetic: Professional B2B/Enterprise, structured, informative
+    ================================================================ */
+
+      .yk-nav6 {
+        background: #fff;
+        border-bottom: 1px solid #eaecf0;
+        padding: 0;
+        font-family: var(--yk-font-sans);
+        position: relative;
+        z-index: 200;
+      }
+
+      .yk-nav6 .yk-n6-inner {
+        padding: 14px 0;
+      }
+
+      .yk-nav6 .yk-n6-logo {
+        font-family: var(--yk-font-sans);
+        font-weight: 800;
+        font-size: 1.15rem;
+        letter-spacing: -0.04em;
+        color: #101828;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .yk-nav6 .yk-n6-logo-box {
+        width: 30px;
+        height: 30px;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 0.85rem;
+        flex-shrink: 0;
+      }
+
+      /* Top-level nav items */
+      .yk-nav6 .nav-item.yk-mega-parent {
+        position: static;
+      }
+
+      .yk-nav6 .nav-link {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #475467;
+        padding: 7px 12px !important;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition:
+          color var(--yk-transition),
+          background var(--yk-transition);
+      }
+
+      .yk-nav6 .nav-link .yk-n6-chevron {
+        font-size: 0.65rem;
+        transition: transform var(--yk-transition);
+      }
+
+      .yk-nav6 .nav-item.yk-mega-parent:hover .nav-link {
+        color: #101828;
+        background: #f9fafb;
+      }
+
+      .yk-nav6 .nav-item.yk-mega-parent:hover .yk-n6-chevron {
+        transform: rotate(180deg);
+      }
+
+      .yk-nav6 .nav-link:hover {
+        color: #101828;
+        background: #f9fafb;
+      }
+      .yk-nav6 .nav-link.active {
+        color: #6366f1;
+        background: #eef2ff;
+      }
+
+      /* Mega menu panel */
+      .yk-mega-panel {
+        display: none;
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid #eaecf0;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        z-index: 300;
+        padding: 36px 0;
+        animation: yk-mega-in 0.2s var(--yk-easing) forwards;
+      }
+
+      @keyframes yk-mega-in {
+        from {
+          opacity: 0;
+          transform: translateY(-6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .yk-nav6 .nav-item.yk-mega-parent:hover .yk-mega-panel {
+        display: block;
+      }
+
+      .yk-mega-col-title {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #98a2b3;
+        margin-bottom: 16px;
+      }
+
+      .yk-mega-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 13px;
+        padding: 11px 14px;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: background var(--yk-transition);
+        margin-bottom: 4px;
+      }
+      .yk-mega-item:hover {
+        background: #f9fafb;
+      }
+
+      .yk-mega-item-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+
+      .yk-icon-indigo {
+        background: #eef2ff;
+        color: #6366f1;
+      }
+      .yk-icon-violet {
+        background: #f5f3ff;
+        color: #7c3aed;
+      }
+      .yk-icon-sky {
+        background: #e0f2fe;
+        color: #0284c7;
+      }
+      .yk-icon-green {
+        background: #dcfce7;
+        color: #16a34a;
+      }
+      .yk-icon-amber {
+        background: #fef3c7;
+        color: #d97706;
+      }
+      .yk-icon-rose {
+        background: #ffe4e6;
+        color: #e11d48;
+      }
+
+      .yk-mega-item-text strong {
+        display: block;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: #101828;
+        margin-bottom: 2px;
+      }
+      .yk-mega-item-text span {
+        display: block;
+        font-size: 0.78rem;
+        color: #667085;
+        line-height: 1.4;
+      }
+
+      /* Featured card inside mega menu */
+      .yk-mega-featured {
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        border-radius: 14px;
+        padding: 28px 24px;
+        color: #fff;
+        height: 100%;
+      }
+      .yk-mega-featured .yk-mf-label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.7;
+        margin-bottom: 10px;
+      }
+      .yk-mega-featured h5 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
+        margin-bottom: 10px;
+      }
+      .yk-mega-featured p {
+        font-size: 0.8rem;
+        opacity: 0.8;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .yk-mega-featured a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.18);
+        border-radius: 7px;
+        padding: 8px 14px;
+        transition: background var(--yk-transition);
+      }
+      .yk-mega-featured a:hover {
+        background: rgba(255, 255, 255, 0.28);
+      }
+
+      /* Mega menu footer strip */
+      .yk-mega-footer {
+        border-top: 1px solid #f2f4f7;
+        margin-top: 24px;
+        padding-top: 20px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .yk-mega-footer a {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #667085;
+        text-decoration: none;
+        padding: 6px 14px;
+        border-radius: 7px;
+        border: 1px solid #eaecf0;
+        transition: all var(--yk-transition);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .yk-mega-footer a:hover {
+        border-color: #6366f1;
+        color: #6366f1;
+        background: #eef2ff;
+      }
+
+      /* Right side actions */
+      .yk-nav6 .yk-n6-actions {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .yk-nav6 .yk-n6-login {
+        font-size: 0.84rem;
+        font-weight: 600;
+        color: #475467;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition:
+          color var(--yk-transition),
+          background var(--yk-transition);
+      }
+      .yk-nav6 .yk-n6-login:hover {
+        color: #101828;
+        background: #f9fafb;
+      }
+
+      .yk-nav6 .yk-n6-cta {
+        font-size: 0.84rem;
+        font-weight: 600;
+        background: #6366f1;
+        color: #fff;
+        padding: 8px 18px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition:
+          background var(--yk-transition),
+          box-shadow var(--yk-transition),
+          transform var(--yk-transition);
+      }
+      .yk-nav6 .yk-n6-cta:hover {
+        background: #5254cc;
+        box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+        transform: translateY(-1px);
+      }
+
+      .yk-nav6 .navbar-toggler {
+        border: 1px solid #d0d5dd;
+        border-radius: 8px;
+        padding: 6px 10px;
+      }
+      .yk-nav6 .navbar-toggler:focus {
+        box-shadow: none;
+      }
+      .yk-nav6 .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280,0,0,0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+
+      @media (max-width: 991px) {
+        .yk-mega-panel {
+          position: static;
+          box-shadow: none;
+          border: none;
+          padding: 8px 0 4px 16px;
+          border-left: 2px solid #eef2ff;
+          margin: 4px 0 8px;
+          display: block !important; /* override hover show on mobile collapse */
+        }
+        /* Re-hide on mobile until user opens accordion — handled by JS collapse */
+        .yk-mega-panel.yk-mobile-hidden {
+          display: none !important;
+        }
+
+        .yk-nav6 .navbar-collapse {
+          border-top: 1px solid #f2f4f7;
+          margin-top: 12px;
+          padding: 12px 0 8px;
+        }
+        .yk-mega-featured {
+          margin-top: 12px;
+        }
+        .yk-nav6 .yk-n6-actions {
+          margin-top: 12px;
+          flex-direction: column;
+        }
+        .yk-nav6 .yk-n6-login,
+        .yk-nav6 .yk-n6-cta {
+          display: block;
+          text-align: center;
+          width: 100%;
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================================
+      NAVBAR 6 — MEGA MENU NAVBAR
+      Copy from here ↓
+      Note: Parent container needs position:relative and enough z-index.
+            The mega panel is shown via CSS :hover on desktop.
+            On mobile, use the jQuery collapse toggle below.
+    ============================================================ -->
+    <nav class="yk-nav6 navbar navbar-expand-lg">
+      <div class="container">
+        <div class="yk-n6-inner d-flex align-items-center w-100">
+          <!-- Logo -->
+          <a class="navbar-brand p-0 me-4" href="#">
+            <div class="yk-n6-logo">
+              <div class="yk-n6-logo-box">
+                <i class="bi bi-grid-3x3-gap-fill"></i>
+              </div>
+              Vantix
+            </div>
+          </a>
+
+          <!-- Hamburger -->
+          <button
+            class="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#yk-nav6-menu"
+            aria-controls="yk-nav6-menu"
+            aria-expanded="false"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Links -->
+          <div class="collapse navbar-collapse" id="yk-nav6-menu">
+            <ul class="navbar-nav me-auto gap-1">
+              <!-- Products — mega trigger -->
+              <li class="nav-item yk-mega-parent">
+                <a class="nav-link" href="#" onclick="return false;">
+                  Products
+                  <i class="bi bi-chevron-down yk-n6-chevron"></i>
+                </a>
+
+                <!-- MEGA PANEL -->
+                <div
+                  class="yk-mega-panel yk-mobile-hidden"
+                  id="yk-mega-products"
+                >
+                  <div class="container">
+                    <div class="row g-4">
+                      <!-- Col 1 -->
+                      <div class="col-lg-3">
+                        <div class="yk-mega-col-title">Core Platform</div>
+                        <a href="#" class="yk-mega-item">
+                          <div class="yk-mega-item-icon yk-icon-indigo">
+                            <i class="bi bi-bar-chart-line-fill"></i>
+                          </div>
+                          <div class="yk-mega-item-text">
+                            <strong>Analytics</strong>
+                            <span>Real-time dashboards and event tracking</span>
+                          </div>
+                        </a>
+                        <a href="#" class="yk-mega-item">
+                          <div class="yk-mega-item-icon yk-icon-violet">
+                            <i class="bi bi-robot"></i>
+                          </div>
+                          <div class="yk-mega-item-text">
+                            <strong>AI Copilot</strong>
+                            <span>Intelligent automation and suggestions</span>
+                          </div>
+                        </a>
+                        <a href="#" class="yk-mega-item">
+                          <div class="yk-mega-item-icon yk-icon-sky">
+                            <i class="bi bi-cloud-arrow-up-fill"></i>
+                          </div>
+                          <div class="yk-mega-item-text">
+                            <strong>Data Pipeline</strong>
+                            <span>ETL and real-time data ingestion</span>
+                          </div>
+                        </a>
+                      </div>
+
+                      <!-- Col 2 -->
+                      <div class="col-lg-3">
+                        <div class="yk-mega-col-title">By Team</div>
+                        <a href="#" class="yk-mega-item">
+                          <div class="yk-mega-item-icon yk-icon-green">
+                            <i class="bi bi-people-fill"></i>
+                          </div>
+                          <div class="yk-mega-item-text">
+                            <strong>For Marketing</strong>
+                            <span>Attribution, campaigns, and growth</span>
+                          </div>
+                        </a>
+                        <a href="#" class="yk-mega-item">
+                          <div class="yk-mega-item-icon yk-icon-amber">
+                            <i class="bi bi-code-slash"></i>
+                          </div>
+                          <div class="yk-mega-item-text">
+                            <strong>For Developers</strong>
+                            <span>SDKs, APIs, and webhooks</span>
+                          </div>
+                        </a>
+                        <a href="#" class="yk-mega-item">
+                          <div class="yk-mega-item-icon yk-icon-rose">
+                            <i class="bi bi-building"></i>
+                          </div>
+                          <div class="yk-mega-item-text">
+                            <strong>Enterprise</strong>
+                            <span>Custom SLAs, SAML, and audit logs</span>
+                          </div>
+                        </a>
+                      </div>
+
+                      <!-- Col 3 — Featured -->
+                      <div class="col-lg-3 ms-auto">
+                        <div class="yk-mega-featured">
+                          <div class="yk-mf-label">✦ What's new</div>
+                          <h5>AI-powered<br />Anomaly Detection</h5>
+                          <p>
+                            Catch issues before your users do. Now in early
+                            access.
+                          </p>
+                          <a href="#">
+                            Learn more <i class="bi bi-arrow-right"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /row -->
+
+                    <!-- Footer strip -->
+                    <div class="yk-mega-footer">
+                      <a href="#"
+                        ><i class="bi bi-play-circle"></i> Watch demo</a
+                      >
+                      <a href="#"
+                        ><i class="bi bi-file-earmark-text"></i>
+                        Documentation</a
+                      >
+                      <a href="#"
+                        ><i class="bi bi-patch-check"></i> Status page</a
+                      >
+                      <a href="#"><i class="bi bi-stars"></i> Changelog</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- /MEGA PANEL -->
+              </li>
+
+              <!-- Solutions — regular link -->
+              <li class="nav-item">
+                <a class="nav-link" href="#">Solutions</a>
+              </li>
+
+              <!-- Resources — another mega if you want, or regular -->
+              <li class="nav-item">
+                <a class="nav-link" href="#">Resources</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Pricing</a>
+              </li>
+            </ul>
+
+            <!-- Actions -->
+            <div class="yk-n6-actions">
+              <a href="#" class="yk-n6-login">Sign in</a>
+              <a href="#" class="yk-n6-cta">Get started free</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      /* ================================================================
+     JQUERY — NAVBAR 6: Mobile mega menu toggle
+     On mobile, clicking "Products" toggles the mega panel open/closed.
+     On desktop the CSS :hover handles it; we only bind for mobile.
+  ================================================================ */
+      function ykMegaMenuMobile() {
+        var $trigger = $(".yk-nav6 .yk-mega-parent > .nav-link");
+
+        $trigger.off("click.ykMega").on("click.ykMega", function (e) {
+          // Only intercept on mobile (≤ 991px)
+          if ($(window).width() > 991) return;
+
+          e.preventDefault();
+          var $panel = $(this).siblings(".yk-mega-panel");
+
+          // Toggle this panel
+          $panel.toggleClass("yk-mobile-hidden");
+
+          // Rotate chevron
+          $(this)
+            .find(".yk-n6-chevron")
+            .toggleClass("bi-chevron-down bi-chevron-up");
+        });
+      }
+
+      // Run on DOM ready and on resize
+      $(document).ready(ykMegaMenuMobile);
+      $(window).on("resize", ykMegaMenuMobile);
+    </script>
+  </body>
+</html>

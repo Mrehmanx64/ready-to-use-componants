@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slider3</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Swiper.js -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,700&family=Epilogue:wght@300;400;500;600;700&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ==============================================
+       SLIDER 3 — PRODUCT SHOWCASE SLIDER
+       Theme: Premium dark product stage
+       Fonts: Syne + Outfit
+    =============================================== */
+
+      .yk-s3 {
+        --s3-bg: #0c0c0c;
+        --s3-card: #141414;
+        --s3-border: #1e1e1e;
+        --s3-accent: #7eeeff;
+        --s3-gold: #ffcc55;
+        background: var(--s3-bg);
+        padding: 60px 0;
+        height: 100dvh;
+      }
+
+      .yk-s3 .swiper {
+        overflow: hidden;
+      }
+
+      .yk-s3-slide {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        background: var(--s3-card);
+        border: 1px solid var(--s3-border);
+        border-radius: 24px;
+        overflow: hidden;
+        min-height: 520px;
+      }
+
+      /* Product image area */
+      .yk-s3-img-area {
+        flex: 0 0 50%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        min-height: 520px;
+        overflow: hidden;
+      }
+
+      .yk-s3-img-bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.2;
+        filter: blur(40px);
+        transform: scale(1.4);
+      }
+
+      .yk-s3-img-area img {
+        position: relative;
+        z-index: 1;
+        max-height: 340px;
+        max-width: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.6));
+        transition: transform 0.5s ease;
+      }
+
+      .yk-s3 .swiper-slide-active .yk-s3-img-area img {
+        animation: yk-float 3s ease-in-out infinite;
+      }
+
+      @keyframes yk-float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      /* Text area */
+      .yk-s3-info {
+        flex: 1;
+        padding: 52px 52px 52px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .yk-s3-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(126, 238, 255, 0.08);
+        border: 1px solid rgba(126, 238, 255, 0.2);
+        border-radius: 50px;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--s3-accent);
+        padding: 5px 14px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        width: fit-content;
+      }
+
+      .yk-s3-badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--s3-accent);
+      }
+
+      .yk-s3-headline {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(1.8rem, 3vw, 2.8rem);
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.1;
+        margin-bottom: 16px;
+      }
+
+      .yk-s3-desc {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.75;
+        max-width: 360px;
+        margin-bottom: 28px;
+      }
+
+      /* Feature tags */
+      .yk-s3-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 32px;
+      }
+
+      .yk-s3-feat {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--s3-border);
+        border-radius: 6px;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 5px 12px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .yk-s3-feat i {
+        color: var(--s3-gold);
+      }
+
+      .yk-s3-btns {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .yk-s3-btn-p {
+        background: var(--s3-accent);
+        color: #0c0c0c;
+        border: none;
+        font-family: "Syne", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 12px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition:
+          background 0.25s,
+          transform 0.2s;
+      }
+
+      .yk-s3-btn-p:hover {
+        background: #fff;
+        transform: translateY(-2px);
+      }
+
+      .yk-s3-btn-s {
+        background: transparent;
+        color: rgba(255, 255, 255, 0.6);
+        border: 1px solid var(--s3-border);
+        font-family: "Syne", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 12px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition:
+          border-color 0.25s,
+          color 0.25s,
+          transform 0.2s;
+      }
+
+      .yk-s3-btn-s:hover {
+        border-color: rgba(255, 255, 255, 0.4);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      /* Slide-in animations */
+      .yk-s3-info .yk-s3-badge,
+      .yk-s3-info .yk-s3-headline,
+      .yk-s3-info .yk-s3-desc,
+      .yk-s3-info .yk-s3-features,
+      .yk-s3-info .yk-s3-btns {
+        opacity: 0;
+        transform: translateX(30px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+
+      .yk-s3 .swiper-slide-active .yk-s3-badge {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.1s;
+      }
+      .yk-s3 .swiper-slide-active .yk-s3-headline {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.2s;
+      }
+      .yk-s3 .swiper-slide-active .yk-s3-desc {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.3s;
+      }
+      .yk-s3 .swiper-slide-active .yk-s3-features {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.4s;
+      }
+      .yk-s3 .swiper-slide-active .yk-s3-btns {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.5s;
+      }
+
+      /* Nav */
+      .yk-s3-prev,
+      .yk-s3-next {
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--s3-border);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+
+      .yk-s3-prev:hover,
+      .yk-s3-next:hover {
+        background: rgba(126, 238, 255, 0.1);
+        color: var(--s3-accent);
+        border-color: rgba(126, 238, 255, 0.3);
+      }
+
+      .yk-s3-nav-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .yk-s3 .swiper-pagination-bullet {
+        width: 28px;
+        height: 3px;
+        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.15);
+        opacity: 1;
+      }
+
+      .yk-s3 .swiper-pagination-bullet-active {
+        background: var(--s3-accent);
+        width: 44px;
+      }
+
+      @media (max-width: 768px) {
+        .yk-s3-slide {
+          flex-direction: column;
+          min-height: unset;
+        }
+        .yk-s3-img-area {
+          flex: none;
+          min-height: 280px;
+          width: 100%;
+        }
+        .yk-s3-info {
+          padding: 32px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =============================================
+     SLIDER 3 — PRODUCT SHOWCASE SLIDER
+     Dark premium stage | Syne + Outfit | Cyan accent
+     Floating product image + feature tags
+============================================= -->
+
+    <section class="yk-s3">
+      <div class="container">
+        <div class="swiper yk-s3-swiper">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 — Headphones -->
+            <div class="swiper-slide">
+              <div class="yk-s3-slide">
+                <div class="yk-s3-img-area">
+                  <div
+                    class="yk-s3-img-bg"
+                    style="
+                      background-image: url(&quot;https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80&quot;);
+                      background-color: #1a3a4a;
+                    "
+                  ></div>
+                  <img
+                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80"
+                    alt="Pro Headphones"
+                  />
+                </div>
+                <div class="yk-s3-info">
+                  <span class="yk-s3-badge">New Arrival</span>
+                  <h2 class="yk-s3-headline">SoundSphere<br />Pro Max</h2>
+                  <p class="yk-s3-desc">
+                    Active noise cancellation meets studio-quality audio.
+                    Redefined for the professionals who refuse to compromise.
+                  </p>
+                  <div class="yk-s3-features">
+                    <span class="yk-s3-feat"
+                      ><i class="bi bi-star-fill"></i> ANC 40dB</span
+                    >
+                    <span class="yk-s3-feat"
+                      ><i class="bi bi-battery-full"></i> 40hr battery</span
+                    >
+                    <span class="yk-s3-feat"
+                      ><i class="bi bi-bluetooth"></i> BT 5.3</span
+                    >
+                    <span class="yk-s3-feat"
+                      ><i class="bi bi-shield-check"></i> IPX4 rated</span
+                    >
+                  </div>
+                  <div class="yk-s3-btns">
+                    <a href="#" class="yk-s3-btn-p"
+                      >Buy Now — $349 <i class="bi bi-arrow-right"></i
+                    ></a>
+                    <a href="#" class="yk-s3-btn-s">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 — Watch -->
+            <div class="swiper-slide">
+              <div class="yk-s3-slide">
+                <div class="yk-s3-img-area">
+                  <div
+                    class="yk-s3-img-bg"
+                    style="
+                      background-image: url(&quot;https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80&quot;);
+                      background-color: #2a1a0a;
+                    "
+                  ></div>
+                  <img
+                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80"
+                    alt="Smart Watch"
+                  />
+                </div>
+                <div class="yk-s3-info">
+                  <span class="yk-s3-badge">Best Seller</span>
+                  <h2 class="yk-s3-headline">Chrono X<br />Series 7</h2>
+                  <p class="yk-s3-desc">
+                    A masterpiece of micro-engineering. Tracks everything from
+                    your heart rate to your sleep, beautifully.
+                  </p>
+                  <div class="yk-s3-features">
+                    <span class="yk-s3-feat"
+                      ><i class="bi bi-heart-pulse-fill"></i> Health Suite</span
+                    >
+                    <span class="yk-s3-feat"
+                      ><i class="bi bi-droplet-fill"></i> Water 50m</span
+                    >
+                    <span class="yk-s3-feat"
+                      ><i class="bi bi-activity"></i> GPS + LTE</span
+                    >
+                    <span class="yk-s3-feat"
+                      ><i class="bi bi-phone"></i> eSIM ready</span
+                    >
+                  </div>
+                  <div class="yk-s3-btns">
+                    <a href="#" class="yk-s3-btn-p"
+                      >Buy Now — $599 <i class="bi bi-arrow-right"></i
+                    ></a>
+                    <a href="#" class="yk-s3-btn-s">Compare Models</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 — Sneakers -->
+            <div class="swiper-slide">
+              <div class="yk-s3-slide">
+                <div class="yk-s3-img-area">
+                  <div
+                    class="yk-s3-img-bg"
+                    style="
+                      background-image: url(&quot;https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80&quot;);
+                      background-color: #0a2a1a;
+                    "
+                  ></div>
+                  <img
+                    src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80"
+                    alt="Running Shoes"
+                  />
+                </div>
+                <div class="yk-s3-info">
+                  <span class="yk-s3-badge">Limited Drop</span>
+                  <h2 class="yk-s3-headline">UltraRun<br />Carbon Elite</h2>
+                  <p class="yk-s3-desc">
+                    The culmination of 5 years of biomechanical research. Every
+                    gram optimized for maximum propulsion.
+                  </p>
+                  <div class="yk-s3-features">
+                    <span class="yk-s3-feat"
+                      ><i class="bi bi-lightning-fill"></i> Carbon plate</span
+                    >
+                    <span class="yk-s3-feat"
+                      ><i class="bi bi-wind"></i> 196g weight</span
+                    >
+                    <span class="yk-s3-feat"
+                      ><i class="bi bi-recycle"></i> Recycled mesh</span
+                    >
+                    <span class="yk-s3-feat"
+                      ><i class="bi bi-trophy-fill"></i> Race-legal</span
+                    >
+                  </div>
+                  <div class="yk-s3-btns">
+                    <a href="#" class="yk-s3-btn-p"
+                      >Buy Now — $220 <i class="bi bi-arrow-right"></i
+                    ></a>
+                    <a href="#" class="yk-s3-btn-s">See All Colorways</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nav row below slider -->
+        <div class="yk-s3-nav-row">
+          <div class="yk-s3-prev"><i class="bi bi-chevron-left"></i></div>
+          <div class="swiper-pagination yk-s3-pagination"></div>
+          <div class="yk-s3-next"><i class="bi bi-chevron-right"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      /* =============================================
+   SLIDER 3 — Product Showcase
+   Autoplay | Centred layout
+============================================= */
+      new Swiper(".yk-s3-swiper", {
+        loop: true,
+        speed: 700,
+        autoplay: { delay: 4000, disableOnInteraction: false },
+        navigation: {
+          nextEl: ".yk-s3-next",
+          prevEl: ".yk-s3-prev",
+        },
+        pagination: {
+          el: ".yk-s3-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+  </body>
+</html>

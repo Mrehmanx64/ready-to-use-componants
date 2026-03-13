@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contact1</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Swiper.js -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,700&family=Epilogue:wght@300;400;500;600;700&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* =============================================
+       CONTACT LAYOUT 1
+       "Editorial Split" — Dark Left / Light Right
+       Fonts: Fraunces (display) + Epilogue (body)
+       Theme: Luxury editorial, deep charcoal + warm cream
+    ============================================= */
+
+      /* --- Variables --- */
+      .yk-c1-section {
+        --c1-dark: #1a1916;
+        --c1-cream: #f5f2eb;
+        --c1-accent: #c9a96e;
+        --c1-text: #3a3834;
+        --c1-muted: #8a857c;
+        --c1-border: #dedad2;
+      }
+
+      /* --- Layout --- */
+      .yk-c1-section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .yk-c1-inner {
+        display: flex;
+        flex: 1;
+        min-height: 100vh;
+        flex-wrap: wrap;
+      }
+
+      /* Left Panel */
+      .yk-c1-left {
+        background: var(--c1-dark);
+        flex: 0 0 42%;
+        padding: 72px 56px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .yk-c1-left::before {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: -80px;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        border: 1px solid rgba(201, 169, 110, 0.12);
+        pointer-events: none;
+      }
+
+      .yk-c1-left::after {
+        content: "";
+        position: absolute;
+        bottom: -40px;
+        left: -40px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 1px solid rgba(201, 169, 110, 0.08);
+        pointer-events: none;
+      }
+
+      .yk-c1-logo {
+        font-family: "Fraunces", serif;
+        font-size: 1.1rem;
+        color: var(--c1-accent);
+        letter-spacing: 0.06em;
+        margin-bottom: 60px;
+      }
+
+      .yk-c1-headline {
+        font-family: "Fraunces", serif;
+        font-size: clamp(2.4rem, 4vw, 3.6rem);
+        font-weight: 900;
+        line-height: 1.05;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+
+      .yk-c1-headline em {
+        font-style: italic;
+        color: var(--c1-accent);
+      }
+
+      .yk-c1-sub {
+        font-family: "Epilogue", sans-serif;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.45);
+        line-height: 1.75;
+        max-width: 300px;
+      }
+
+      .yk-c1-info-list {
+        list-style: none;
+        padding: 0;
+        margin: 48px 0 0;
+      }
+
+      .yk-c1-info-list li {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        margin-bottom: 22px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding-bottom: 22px;
+      }
+
+      .yk-c1-info-list li:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .yk-c1-info-icon {
+        width: 36px;
+        height: 36px;
+        background: rgba(201, 169, 110, 0.12);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--c1-accent);
+        font-size: 0.95rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .yk-c1-info-label {
+        font-family: "Epilogue", sans-serif;
+        font-size: 0.68rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.3);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+      }
+
+      .yk-c1-info-val {
+        font-family: "Epilogue", sans-serif;
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      /* Right Panel — Form */
+      .yk-c1-right {
+        background: var(--c1-cream);
+        flex: 1;
+        padding: 72px 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .yk-c1-form-label {
+        font-family: "Epilogue", sans-serif;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--c1-muted);
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      .yk-c1-input {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1.5px solid var(--c1-border);
+        padding: 10px 0 10px;
+        font-family: "Epilogue", sans-serif;
+        font-size: 0.95rem;
+        color: var(--c1-text);
+        outline: none;
+        transition: border-color 0.3s;
+        margin-bottom: 32px;
+        display: block;
+      }
+
+      .yk-c1-input:focus {
+        border-color: var(--c1-accent);
+      }
+
+      .yk-c1-input::placeholder {
+        color: var(--c1-muted);
+        opacity: 0.5;
+      }
+
+      .yk-c1-select {
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238a857c'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0 center;
+        cursor: pointer;
+      }
+
+      .yk-c1-textarea {
+        resize: none;
+        min-height: 100px;
+      }
+
+      .yk-c1-section-tag {
+        font-family: "Epilogue", sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--c1-accent);
+        margin-bottom: 8px;
+      }
+
+      .yk-c1-form-title {
+        font-family: "Fraunces", serif;
+        font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+        font-weight: 700;
+        color: var(--c1-dark);
+        margin-bottom: 36px;
+      }
+
+      .yk-c1-btn {
+        background: var(--c1-dark);
+        color: var(--c1-accent);
+        border: none;
+        font-family: "Epilogue", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 14px 36px;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          transform 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .yk-c1-btn:hover {
+        background: var(--c1-accent);
+        color: var(--c1-dark);
+        transform: translateY(-1px);
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .yk-c1-left,
+        .yk-c1-right {
+          flex: 0 0 100%;
+          padding: 52px 28px;
+        }
+        .yk-c1-inner {
+          flex-direction: column;
+        }
+      }
+      /* =============================================
+       FORM SUCCESS STATE (shared)
+    ============================================= */
+      .yk-success-msg {
+        display: none;
+        background: #f0fdf4;
+        border: 1.5px solid #86efac;
+        border-radius: 10px;
+        padding: 14px 18px;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.88rem;
+        color: #166534;
+        align-items: center;
+        gap: 10px;
+        margin-top: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =============================================
+     LAYOUT 1 — EDITORIAL SPLIT
+     Dark charcoal left / warm cream form right
+============================================= -->
+    <section class="yk-c1-section" id="layout1">
+      <div class="yk-c1-inner">
+        <!-- Left: Info Panel -->
+        <div class="yk-c1-left">
+          <div class="yk-c1-logo">MERIDIAN&nbsp;&nbsp;STUDIO</div>
+
+          <div>
+            <h2 class="yk-c1-headline">
+              Let's make<br />something <em>great</em><br />together.
+            </h2>
+            <p class="yk-c1-sub">
+              We work with bold brands and ambitious founders. Tell us about
+              your project.
+            </p>
+
+            <!-- Info List -->
+            <ul class="yk-c1-info-list">
+              <li>
+                <span class="yk-c1-info-icon"
+                  ><i class="bi bi-geo-alt"></i
+                ></span>
+                <div>
+                  <p class="yk-c1-info-label">Address</p>
+                  <p class="yk-c1-info-val">
+                    42 Threadneedle St, London EC2R 8AY
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span class="yk-c1-info-icon"
+                  ><i class="bi bi-telephone"></i
+                ></span>
+                <div>
+                  <p class="yk-c1-info-label">Phone</p>
+                  <p class="yk-c1-info-val">+44 20 7946 0958</p>
+                </div>
+              </li>
+              <li>
+                <span class="yk-c1-info-icon"
+                  ><i class="bi bi-envelope"></i
+                ></span>
+                <div>
+                  <p class="yk-c1-info-label">Email</p>
+                  <p class="yk-c1-info-val">hello@meridianstudio.co</p>
+                </div>
+              </li>
+              <li>
+                <span class="yk-c1-info-icon"><i class="bi bi-clock"></i></span>
+                <div>
+                  <p class="yk-c1-info-label">Hours</p>
+                  <p class="yk-c1-info-val">Mon–Fri, 9:00 – 18:00 GMT</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="yk-c1-right">
+          <p class="yk-c1-section-tag">Get In Touch</p>
+          <h3 class="yk-c1-form-title">Send us a message</h3>
+
+          <form class="yk-c1-form" novalidate>
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <label class="yk-c1-form-label">First Name</label>
+                <input type="text" class="yk-c1-input" placeholder="Jane" />
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="yk-c1-form-label">Last Name</label>
+                <input type="text" class="yk-c1-input" placeholder="Smith" />
+              </div>
+            </div>
+
+            <label class="yk-c1-form-label">Email Address</label>
+            <input
+              type="email"
+              class="yk-c1-input"
+              placeholder="jane@company.com"
+            />
+
+            <label class="yk-c1-form-label">Project Type</label>
+            <select class="yk-c1-input yk-c1-select">
+              <option value="" disabled selected>Select a service…</option>
+              <option>Brand Identity</option>
+              <option>Web Design</option>
+              <option>Motion & Video</option>
+              <option>Strategy</option>
+            </select>
+
+            <label class="yk-c1-form-label">Your Message</label>
+            <textarea
+              class="yk-c1-input yk-c1-textarea"
+              placeholder="Tell us about your project…"
+            ></textarea>
+
+            <button type="submit" class="yk-c1-btn">
+              Send Message <i class="bi bi-arrow-right"></i>
+            </button>
+            <div class="yk-success-msg yk-c1-success d-flex">
+              <i class="bi bi-check-circle-fill"></i> Message sent! We'll be in
+              touch soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      /* =============================================
+     Layout 1 — Form submit
+  ============================================= */
+
+      $(function () {
+        $(".yk-c1-form").on("submit", function (e) {
+          e.preventDefault();
+          $(".yk-c1-success").fadeIn(300);
+          $(this)[0].reset();
+        });
+      });
+    </script>
+  </body>
+</html>

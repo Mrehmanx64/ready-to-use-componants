@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slider2</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Swiper.js -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,700&family=Epilogue:wght@300;400;500;600;700&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ==============================================
+       SLIDER 2 — SPLIT HERO SLIDER
+       Theme: Clean editorial magazine split
+       Fonts: DM Serif Display + Outfit
+    =============================================== */
+
+      .yk-s2 {
+        --s2-bg: #faf8f3;
+        --s2-dark: #111;
+        --s2-accent: #ff4d3d;
+        --s2-muted: #888;
+        background: var(--s2-bg);
+      }
+
+      .yk-s2 .swiper {
+        width: 100%;
+        height: 100vh;
+        min-height: 600px;
+      }
+
+      .yk-s2 .swiper-slide {
+        display: flex;
+        align-items: stretch;
+      }
+
+      /* Left text half */
+      .yk-s2-left {
+        flex: 0 0 48%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(40px, 6vw, 100px) clamp(32px, 5vw, 80px);
+        background: var(--s2-bg);
+      }
+
+      .yk-s2-num {
+        font-family: "Outfit", sans-serif;
+        font-size: 5rem;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.05);
+        line-height: 1;
+        margin-bottom: -20px;
+      }
+
+      .yk-s2-label {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--s2-accent);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+
+      .yk-s2-label::before {
+        content: "";
+        width: 24px;
+        height: 1.5px;
+        background: var(--s2-accent);
+      }
+
+      .yk-s2-headline {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(2rem, 3.5vw, 3.6rem);
+        font-weight: 400;
+        line-height: 1.1;
+        color: var(--s2-dark);
+        margin-bottom: 18px;
+      }
+
+      .yk-s2-headline em {
+        font-style: italic;
+        color: var(--s2-accent);
+      }
+
+      .yk-s2-desc {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.92rem;
+        color: var(--s2-muted);
+        line-height: 1.75;
+        max-width: 360px;
+        margin-bottom: 36px;
+      }
+
+      .yk-s2-btns {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .yk-s2-btn-p {
+        background: var(--s2-dark);
+        color: #fff;
+        border: 2px solid var(--s2-dark);
+        font-family: "Outfit", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 12px 28px;
+        text-decoration: none;
+        transition:
+          background 0.25s,
+          color 0.25s,
+          transform 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .yk-s2-btn-p:hover {
+        background: var(--s2-accent);
+        border-color: var(--s2-accent);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      .yk-s2-btn-s {
+        background: transparent;
+        color: var(--s2-dark);
+        border: 2px solid rgba(0, 0, 0, 0.15);
+        font-family: "Outfit", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 12px 28px;
+        text-decoration: none;
+        transition:
+          border-color 0.25s,
+          transform 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .yk-s2-btn-s:hover {
+        border-color: var(--s2-dark);
+        color: var(--s2-dark);
+        transform: translateY(-2px);
+      }
+
+      /* Right image half */
+      .yk-s2-right {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .yk-s2-img {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        transform: scale(1.06);
+        transition: transform 6s ease;
+      }
+
+      .yk-s2 .swiper-slide-active .yk-s2-img {
+        transform: scale(1);
+      }
+
+      .yk-s2-img-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, var(--s2-bg) 0%, transparent 15%);
+        z-index: 1;
+      }
+
+      /* Slide-in content animations */
+      .yk-s2-label,
+      .yk-s2-headline,
+      .yk-s2-desc,
+      .yk-s2-btns {
+        opacity: 0;
+        transform: translateX(-24px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+
+      .yk-s2 .swiper-slide-active .yk-s2-label {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.1s;
+      }
+      .yk-s2 .swiper-slide-active .yk-s2-headline {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.25s;
+      }
+      .yk-s2 .swiper-slide-active .yk-s2-desc {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.4s;
+      }
+      .yk-s2 .swiper-slide-active .yk-s2-btns {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.55s;
+      }
+
+      /* Arrows */
+      .yk-s2-prev,
+      .yk-s2-next {
+        position: absolute;
+        bottom: 40px;
+        z-index: 20;
+        width: 46px;
+        height: 46px;
+        background: #fff;
+        border: 1.5px solid #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--s2-dark);
+        font-size: 1rem;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+
+      .yk-s2-prev {
+        left: clamp(32px, 5vw, 80px);
+      }
+      .yk-s2-next {
+        left: calc(clamp(32px, 5vw, 80px) + 58px);
+      }
+      .yk-s2-prev:hover,
+      .yk-s2-next:hover {
+        background: var(--s2-dark);
+        color: #fff;
+        border-color: var(--s2-dark);
+      }
+
+      .yk-s2 .swiper-pagination {
+        bottom: 52px !important;
+        left: auto !important;
+        right: 36px !important;
+        width: auto !important;
+        display: flex;
+        gap: 6px;
+      }
+
+      .yk-s2 .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        background: rgba(0, 0, 0, 0.18);
+        opacity: 1;
+        border-radius: 50%;
+        transition:
+          background 0.25s,
+          transform 0.25s;
+      }
+
+      .yk-s2 .swiper-pagination-bullet-active {
+        background: var(--s2-accent);
+        transform: scale(1.3);
+      }
+
+      @media (max-width: 768px) {
+        .yk-s2 .swiper {
+          height: auto;
+          min-height: unset;
+        }
+        .yk-s2 .swiper-slide {
+          flex-direction: column;
+        }
+        .yk-s2-left {
+          flex: none;
+          min-height: 55vh;
+        }
+        .yk-s2-right {
+          min-height: 45vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =============================================
+     SLIDER 2 — SPLIT HERO SLIDER
+     Editorial magazine split | DM Serif + Outfit
+     Text left, image right | Red accent
+============================================= -->
+
+    <section class="yk-s2">
+      <div class="swiper yk-s2-swiper">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <div class="yk-s2-left">
+              <div class="yk-s2-num">01</div>
+              <p class="yk-s2-label">Creative Direction</p>
+              <h2 class="yk-s2-headline">
+                Where Great<br />Ideas <em>Take Shape</em>
+              </h2>
+              <p class="yk-s2-desc">
+                We partner with ambitious brands to create visual identities
+                that hold weight in the real world.
+              </p>
+              <div class="yk-s2-btns">
+                <a href="#" class="yk-s2-btn-p"
+                  >See Our Work <i class="bi bi-arrow-right"></i
+                ></a>
+                <a href="#" class="yk-s2-btn-s">Meet the Team</a>
+              </div>
+            </div>
+            <div class="yk-s2-right">
+              <div
+                class="yk-s2-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1000&q=85&quot;);
+                "
+              ></div>
+              <div class="yk-s2-img-overlay"></div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <div class="yk-s2-left">
+              <div class="yk-s2-num">02</div>
+              <p class="yk-s2-label">Product Design</p>
+              <h2 class="yk-s2-headline">
+                Built for<br /><em>Real People,</em><br />Real Problems
+              </h2>
+              <p class="yk-s2-desc">
+                User-first design thinking that transforms complex challenges
+                into intuitive, delightful solutions.
+              </p>
+              <div class="yk-s2-btns">
+                <a href="#" class="yk-s2-btn-p"
+                  >View Projects <i class="bi bi-arrow-right"></i
+                ></a>
+                <a href="#" class="yk-s2-btn-s">Our Process</a>
+              </div>
+            </div>
+            <div class="yk-s2-right">
+              <div
+                class="yk-s2-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1000&q=85&quot;);
+                "
+              ></div>
+              <div class="yk-s2-img-overlay"></div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <div class="yk-s2-left">
+              <div class="yk-s2-num">03</div>
+              <p class="yk-s2-label">Digital Craft</p>
+              <h2 class="yk-s2-headline">
+                Detail Is<br />Not a Detail —<br /><em>It's Everything</em>
+              </h2>
+              <p class="yk-s2-desc">
+                We sweat the small stuff so you don't have to. Pixel-perfect
+                execution at every touchpoint.
+              </p>
+              <div class="yk-s2-btns">
+                <a href="#" class="yk-s2-btn-p"
+                  >Start a Project <i class="bi bi-arrow-right"></i
+                ></a>
+                <a href="#" class="yk-s2-btn-s">Read the Journal</a>
+              </div>
+            </div>
+            <div class="yk-s2-right">
+              <div
+                class="yk-s2-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1000&q=85&quot;);
+                "
+              ></div>
+              <div class="yk-s2-img-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrows (bottom-left, magazine style) -->
+      <div class="yk-s2-prev"><i class="bi bi-arrow-left"></i></div>
+      <div class="yk-s2-next"><i class="bi bi-arrow-right"></i></div>
+
+      <!-- Pagination (bottom-right) -->
+      <div class="swiper-pagination yk-s2-pagination"></div>
+    </section>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      /* =============================================
+   SLIDER 2 — Split Hero
+   Autoplay | Cross-slide content animation
+============================================= */
+      new Swiper(".yk-s2-swiper", {
+        loop: true,
+        speed: 800,
+        autoplay: { delay: 5500, disableOnInteraction: false },
+        navigation: {
+          nextEl: ".yk-s2-next",
+          prevEl: ".yk-s2-prev",
+        },
+        pagination: {
+          el: ".yk-s2-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+  </body>
+</html>

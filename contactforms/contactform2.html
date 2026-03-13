@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contact2</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Swiper.js -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,700&family=Epilogue:wght@300;400;500;600;700&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* =============================================
+       CONTACT LAYOUT 2
+       "Bold Brutalist" — Black + Electric Yellow
+       Fonts: Bebas Neue (display) + Outfit (body)
+       Theme: Agency / creative studio
+    ============================================= */
+
+      .yk-c2-section {
+        --c2-black: #0d0d0d;
+        --c2-yellow: #f5e642;
+        --c2-white: #fafafa;
+        --c2-grey: #1e1e1e;
+        --c2-border: #2e2e2e;
+        --c2-muted: #666;
+        background: var(--c2-black);
+        padding: 80px 0;
+      }
+
+      .yk-c2-eyebrow {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--c2-yellow);
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .yk-c2-headline {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(3.5rem, 7vw, 7rem);
+        line-height: 0.92;
+        color: var(--c2-white);
+        margin-bottom: 0;
+        letter-spacing: 0.02em;
+      }
+
+      .yk-c2-headline span {
+        color: var(--c2-yellow);
+      }
+
+      .yk-c2-divider {
+        height: 1px;
+        background: var(--c2-border);
+        margin: 48px 0;
+      }
+
+      /* Contact Cards Row */
+      .yk-c2-card {
+        background: var(--c2-grey);
+        border: 1px solid var(--c2-border);
+        padding: 28px 24px;
+        transition:
+          border-color 0.25s,
+          transform 0.25s;
+      }
+
+      .yk-c2-card:hover {
+        border-color: var(--c2-yellow);
+        transform: translateY(-4px);
+      }
+
+      .yk-c2-card-icon {
+        font-size: 1.6rem;
+        color: var(--c2-yellow);
+        margin-bottom: 14px;
+        display: block;
+      }
+
+      .yk-c2-card-label {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.66rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--c2-muted);
+        margin-bottom: 6px;
+      }
+
+      .yk-c2-card-val {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.92rem;
+        font-weight: 500;
+        color: var(--c2-white);
+      }
+
+      /* Form */
+      .yk-c2-form-wrap {
+        background: var(--c2-grey);
+        border: 1px solid var(--c2-border);
+        padding: 40px 36px;
+      }
+
+      .yk-c2-field-wrap {
+        position: relative;
+        margin-bottom: 28px;
+      }
+
+      .yk-c2-input {
+        width: 100%;
+        background: transparent;
+        border: 1px solid var(--c2-border);
+        color: var(--c2-white);
+        font-family: "Outfit", sans-serif;
+        font-size: 0.9rem;
+        padding: 14px 16px;
+        outline: none;
+        transition: border-color 0.25s;
+      }
+
+      .yk-c2-input:focus {
+        border-color: var(--c2-yellow);
+      }
+
+      .yk-c2-input::placeholder {
+        color: #555;
+      }
+
+      .yk-c2-label {
+        font-family: "Outfit", sans-serif;
+        font-size: 0.66rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--c2-muted);
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .yk-c2-textarea {
+        resize: none;
+        min-height: 120px;
+      }
+
+      .yk-c2-submit {
+        background: var(--c2-yellow);
+        color: var(--c2-black);
+        border: none;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.1rem;
+        letter-spacing: 0.1em;
+        padding: 14px 40px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+
+      .yk-c2-submit:hover {
+        background: #fff;
+        transform: translateY(-2px);
+      }
+
+      .yk-c2-map-wrap {
+        border: 1px solid var(--c2-border);
+        overflow: hidden;
+        height: 260px;
+        margin-top: 28px;
+      }
+
+      .yk-c2-map-wrap iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        filter: grayscale(1) invert(0.9) contrast(0.8);
+      }
+      /* =============================================
+       FORM SUCCESS STATE (shared)
+    ============================================= */
+      .yk-success-msg {
+        display: none;
+        background: #f0fdf4;
+        border: 1.5px solid #86efac;
+        border-radius: 10px;
+        padding: 14px 18px;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.88rem;
+        color: #166534;
+        align-items: center;
+        gap: 10px;
+        margin-top: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =============================================
+     LAYOUT 2 — BOLD BRUTALIST
+     Full dark, electric yellow accents
+============================================= -->
+    <section class="yk-c2-section" id="layout2">
+      <div class="container">
+        <!-- Headline -->
+        <div class="row align-items-end mb-2">
+          <div class="col-lg-8">
+            <span class="yk-c2-eyebrow">— Contact Us</span>
+            <h2 class="yk-c2-headline">DROP<br />US A <span>LINE.</span></h2>
+          </div>
+          <div class="col-lg-4 text-lg-end" style="padding-bottom: 12px">
+            <p
+              style="
+                font-family: &quot;Outfit&quot;, sans-serif;
+                font-size: 0.88rem;
+                color: #666;
+                line-height: 1.7;
+                max-width: 280px;
+                margin-left: auto;
+              "
+            >
+              We respond within 24 hours on business days. No fluff, just real
+              talk.
+            </p>
+          </div>
+        </div>
+
+        <div class="yk-c2-divider"></div>
+
+        <!-- Contact Cards Row -->
+        <div class="row g-3 mb-5">
+          <div class="col-6 col-md-3">
+            <div class="yk-c2-card">
+              <i class="bi bi-geo-alt-fill yk-c2-card-icon"></i>
+              <p class="yk-c2-card-label">Studio</p>
+              <p class="yk-c2-card-val">Berlin, DE 10115</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="yk-c2-card">
+              <i class="bi bi-telephone-fill yk-c2-card-icon"></i>
+              <p class="yk-c2-card-label">Call Us</p>
+              <p class="yk-c2-card-val">+49 30 1234 5678</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="yk-c2-card">
+              <i class="bi bi-envelope-fill yk-c2-card-icon"></i>
+              <p class="yk-c2-card-label">Email</p>
+              <p class="yk-c2-card-val">hi@rawhaus.de</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="yk-c2-card">
+              <i class="bi bi-instagram yk-c2-card-icon"></i>
+              <p class="yk-c2-card-label">Social</p>
+              <p class="yk-c2-card-val">@rawhaus.studio</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form + Map Grid -->
+        <div class="row g-4">
+          <div class="col-12 col-lg-7">
+            <div class="yk-c2-form-wrap">
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label class="yk-c2-label">Name</label>
+                  <input
+                    type="text"
+                    class="yk-c2-input"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="yk-c2-label">Email</label>
+                  <input
+                    type="email"
+                    class="yk-c2-input"
+                    placeholder="your@email.com"
+                  />
+                </div>
+                <div class="col-12">
+                  <label class="yk-c2-label">Subject</label>
+                  <input
+                    type="text"
+                    class="yk-c2-input"
+                    placeholder="What is this about?"
+                  />
+                </div>
+                <div class="col-12">
+                  <label class="yk-c2-label">Message</label>
+                  <textarea
+                    class="yk-c2-input yk-c2-textarea"
+                    placeholder="Tell us everything…"
+                  ></textarea>
+                </div>
+                <div class="col-12 d-flex align-items-center gap-4 flex-wrap">
+                  <button type="submit" class="yk-c2-submit yk-c2-form-trigger">
+                    SEND IT
+                    <i class="bi bi-send-fill" style="font-size: 0.85rem"></i>
+                  </button>
+                  <span
+                    style="
+                      font-family: &quot;Outfit&quot;, sans-serif;
+                      font-size: 0.75rem;
+                      color: #444;
+                    "
+                    >No spam, ever.</span
+                  >
+                </div>
+                <div class="col-12">
+                  <div
+                    class="yk-success-msg yk-c2-success d-flex"
+                    style="
+                      background: rgba(245, 230, 66, 0.08);
+                      border-color: rgba(245, 230, 66, 0.3);
+                      color: #f5e642;
+                    "
+                  >
+                    <i class="bi bi-check-circle-fill"></i> Message received.
+                    We'll get back to you.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-5 d-flex flex-column">
+            <!-- Embedded Map -->
+            <div class="yk-c2-map-wrap flex-grow-1" style="min-height: 300px">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227.15382444971488!2d88.6045684!3d24.3652548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fbefc8e4c4b019%3A0xac68ee5aa77f797f!2zZS0gTGVhcm5pbmcgJiBFYXJuaW5nIEx0ZCwgUmFqc2hhaGkg4KaHIC3gprLgpr7gprDgp43gpqjgpr_gpoIg4KaP4Kao4KeN4KahIOCmhuCmsOCnjeCmqOCmv-CmgiDgprLgpr_gpq7gpr_gpp_gp4fgpqEsIOCmsOCmvuCmnOCmtuCmvuCmueCngA!5e0!3m2!1sen!2sbd!4v1773402864601!5m2!1sen!2sbd"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <p
+              style="
+                font-family: &quot;Outfit&quot;, sans-serif;
+                font-size: 0.7rem;
+                color: #444;
+                margin-top: 10px;
+                letter-spacing: 0.06em;
+              "
+            >
+              MITTE DISTRICT · BERLIN · OPEN MON–SAT
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      /* =============================================
+     Layout 2 — Form submit
+  ============================================= */
+      $(function () {
+        $(".yk-c2-form-trigger").on("click", function (e) {
+          e.preventDefault();
+          $(".yk-c2-success").fadeIn(300);
+        });
+      });
+    </script>
+  </body>
+</html>
